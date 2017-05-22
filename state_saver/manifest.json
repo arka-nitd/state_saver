@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+
+  "name": "State Saver",
+  "description": "Saves the State of the Browser",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "icons": { 
+    "16": "icon.png",
+    "48": "icon1.png",
+    "128": "icon2.png" 
+  },
+  "permissions": ["tabs","storage"]
+}

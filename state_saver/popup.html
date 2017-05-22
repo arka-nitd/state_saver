@@ -1,0 +1,166 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+    <head>
+
+    <style type="text/css">
+        body{
+            min-width: 200px;
+            background: #D9D9D9;
+        }
+        h3{
+            text-align: center;
+        }
+        .tiles  {
+            height: 50px;
+            width: 100%;
+            margin: 0px 0px 10px 0px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .tiles.main{
+            cursor: pointer;
+        }
+        .tiles strong{
+            font-size: 14px;
+            font-family: sans-serif;
+            color: white;
+            line-height: 60px;
+
+        }
+        .action{
+            width: 100%;
+        }
+        #textbody{
+            width: 100%;
+            text-align: center;
+            color: #3D3D3D;
+            font-weight: bold;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        #textbody input, button{
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 4px; 
+            background-color: rgba(10,39,69,0.6);
+            -webkit-border-radius: 80px;
+        }
+        ::-webkit-scrollbar:hover {
+            background-color: rgba(10,39,69,0.6);
+        }
+
+        ::-webkit-scrollbar-thumb:vertical {
+            background:rgba(10,39,69,0.6);
+            -webkit-border-radius: 80px;
+        }
+        ::-webkit-scrollbar-thumb:vertical:active {
+            background: rgba(10,39,69,0.6);
+            -webkit-border-radius: 80px;
+        }
+        .cview{
+            max-height:200px; 
+            display:none;
+            overflow-y: scroll; 
+            margin-bottom: 10px;
+        }
+
+        .cview ul {
+          list-style: none;
+          -webkit-margin-before: 0.4em;
+          -webkit-margin-after: 0.4em;
+          padding-left: 2px;
+          text-align: left;
+        }
+        .cview ul>li{
+            margin: 2px 5px 4px 2px;
+            border-radius: 5px;
+            padding: 8px;
+            font-weight: lighter;
+            background-color: #0A2745;
+            color:white; 
+            clear: both;
+            /*border: 1px solid black;*/
+        }
+        .cview ul>li :not(button){
+            float: left;
+        }
+        .optionbutton{
+            height: 1.5em;
+            padding-left: 3px;
+            text-align: left;
+            font-size: 1em;
+            float: right;
+            margin-left: 6px;
+            color: #162737;
+            border: none;
+            cursor: pointer;
+        }
+        .load{
+            background-color: #26BC2C;
+        }
+        .delete{
+            background-color: #FA4645;
+        }
+    </style>
+    
+    </head>
+    <body>
+
+        <div id="choice">
+            
+            <div class="tiles main" id="1" style="background: #1B9EC8">
+                <strong>Save Current State</strong>
+            </div>
+            <div class="tiles main" id="2" style="background: #162737">
+                <strong>State Controls</strong>
+            </div>
+          
+
+        </div>
+
+        <div class="action" id="action1" style="display: none;">
+           
+            <div class="tiles" style="background: #1B9EC8; margin-bottom: 10px;">
+                <strong>Save State</strong>
+            </div>
+            <div id="textbody" style="background: rgba(27,158,200,0.6);">
+                <p>State Name</p>    
+                <input type="text" name="statename" style="margin-bottom: 10px;">
+                <button id="savestate">Save</button>
+            </div>
+            
+        </div>
+
+        <div class="action" id="action2" style="display: none;">
+           
+            <div class="tiles" style="background: #0A2745; margin-bottom: 10px;">
+                <strong>State List</strong>
+            </div>
+            <div id="textbody" style="background: rgba(10,39,69,0.6);">
+                <div class="cview" id="view">
+                    <ul>
+                    </ul>
+                </div>
+                <div class="cview" id="searchview" style="display: none;">
+                    <ul>
+                    </ul>
+                </div>
+                <input type="text" name="searchstate">
+            </div>
+            
+        </div>
+
+        
+        <div id="status" class="tiles" style="display: none; margin-bottom: 10px;"><strong id="statustext"></strong></div>
+    </body>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="myscript.js"></script>
+ </html>
+
